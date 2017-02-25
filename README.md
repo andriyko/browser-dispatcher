@@ -1,4 +1,4 @@
-# browser-dispatcher
+# Browser Dispatcher
 Open every link in the right browser
 
 ## Getting Started
