@@ -9,9 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them.
 
-```
-TODO
-```
+**TODO** Download `BrowserDispatcher-x.y.z.dmg` from releases.
 
 ### Installing
 
@@ -59,7 +57,7 @@ npm run build
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on code of conduct, and the process for submitting pull requests.
 
 ## Versioning
 
@@ -73,4 +71,4 @@ See also the list of [contributors](CONTRIBUTORS.md) who participated in this pr
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
