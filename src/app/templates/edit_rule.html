@@ -1,0 +1,107 @@
+<form id="editRule" name="editRule" ng-cloak ng-controller="RuleCtrl">
+  <div class="row start-xs">
+    <div class="col-xs-12">
+      <div class="btn-group box bd-button-group bd-center-end">
+        <input id="editRuleName"
+               class="box bd-text-input"
+               type="text"
+               ng-model="rule.name"
+               placeholder="Specify a rule name">
+        <button id="editRuleActionToggleActive"
+                class="btn btn-mini bd-button-mini bd-asymmetric"
+                ng-class="rule.is_active ? 'btn-default' : ''"
+                ng-click="toggleActive()"
+                type="button">
+          <span class="icon icon-check bd-shift-span"
+                ng-class="rule.is_active ? 'icon-check' : 'icon-attention'">
+          </span>
+          {{rule.is_active ? 'Active' : 'Inactive' }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="bd-padded">
+    <span>If</span>
+    <select id="editRuleOperator" ng-model="rule.operator">
+      <option value="all">All</option>
+      <option value="any">Any</option>
+    </select>
+    <span>of the following conditions are met</span>
+  </div>
+  <div id="editRuleConditions" class="form-control bd-padded">
+    <edit-condition ng-repeat="condition in rule.conditions track by $index"
+                    condition="condition"
+                    index="$index">
+    </edit-condition>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="bd-padded">
+        <span>Use this application:</span>
+        <select id="editRuleApplication"
+                class="bd-select-input"
+                ng-options="item as item.display_name for item in applications track by item._id"
+                ng-model="rule.application">
+        </select>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="editRuleAdvancedSettingsOpenNewInstance"
+                 type="checkbox"
+                 ng-model="rule.open_new_instance">
+          Open a new instance of the application even if one is already running
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="editRuleAdvancedSettingsOpenNotForeground"
+                 type="checkbox"
+                 ng-model="rule.open_not_foreground">
+          Do not bring the application to the foreground
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="editRuleAdvancedSettingsOpenFresh"
+                 type="checkbox"
+                 ng-model="rule.open_fresh">
+          Open the application fresh (without restoring windows)
+        </label>
+      </div>
+    </div>
+  </div>
+  <label>The arguments below are passed to the opened application:</label>
+  <div class="row">
+    <div class="col-xs-8">
+      <input id="editRuleAdvancedSettingsArgs"
+             class="box bd-text-input"
+             type="text"
+             ng-model="rule.open_args"/>
+    </div>
+    <div class="col-xs-2">
+      <span class="box icon icon-help-circled"></span>
+    </div>
+  </div>
+  <div class="bd-padded">
+    <div class="row">
+      <div class="col-xs-8">
+        <input id="editRuleTestUrl"
+               class="box bd-text-input"
+               type="text"
+               placeholder="https://google.com"
+               ng-model="rulesTester.data.url"/>
+        <span ng-if="rulesTester.data.isTesting"
+              ng-bind="(rulesTester.data.isTesting && rulesTester.data.result) ? 'The rule matches the URL' : 'The rule does not match the URL'">
+        </span>
+      </div>
+      <div class="col-xs-2">
+        <button id="editRuleActionTest"
+                class="btn btn-default btn-mini"
+                ng-click="rulesTester.runTest([rule])"
+                type="button">
+          Test
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

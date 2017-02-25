@@ -1,0 +1,85 @@
+<form id="editApp" name="editApp"  ng-cloak ng-controller="ApplicationCtrl">
+  <div ng-show="!application._id" class="row center-xs">
+    <div class="col-xs-2 bd-padded">
+      <input id="editAppActionChooseApplication"
+             class="box"
+             type="file"
+             ng-model="application.path"
+             placeholder="Choose application"
+             ng-click="$scope.toggleAddAppDialog()"
+             readonly="readonly" />
+    </div>
+  </div>
+  <div class="row start-xs">
+    <div class="col-xs-12">
+      <div class="btn-group box bd-button-group bd-center-end">
+        <input id="editAppApplicationPath"
+               class="box bd-text-input"
+               type="text"
+               ng-model="application.path"
+               readonly="readonly"
+               disabled="disabled">
+        <button id="editAppActionToggleActive"
+                class="btn btn-mini bd-button-mini bd-asymmetric"
+                ng-class="application.is_active ? 'btn-default' : ''"
+                ng-click="toggleActive()"
+                type="button">
+          <span class="icon icon-check bd-shift-span"
+                ng-class="application.is_active ? 'icon-check' : 'icon-attention'">
+          </span>
+          {{application.is_active ? 'Active' : 'Inactive' }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="bd-padded">
+    <div class="row start-xs">
+      <div class="col-xs-3">
+        <label for="editAppApplicationName" class="box">Name:</label>
+      </div>
+      <div class="col-xs-9">
+        <input id="editAppApplicationName"
+               class="box bd-text-input"
+               type="text"
+               ng-model="application.name"
+               required />
+      </div>
+    </div>
+    <div class="row start-xs">
+      <div class="col-xs-3">
+        <label for="editAppApplicationDisplayName" class="box">Display name:</label>
+      </div>
+      <div class="col-xs-9">
+        <input id="editAppApplicationDisplayName"
+               class="box bd-text-input"
+               type="text"
+               ng-model="application.display_name"
+               required />
+      </div>
+    </div>
+    <div class="row start-xs">
+      <div class="col-xs-3">
+        <label for="editAppApplicationExecutable" class="box">Executable:</label>
+      </div>
+      <div class="col-xs-9">
+        <input id="editAppApplicationExecutable"
+               class="box bd-text-input"
+               type="text"
+               ng-model="application.executable"
+               required />
+      </div>
+    </div>
+    <div class="row start-xs">
+      <div class="col-xs-3">
+        <label for="editAppApplicationIdentifier" class="box">Bundle identifier:</label>
+      </div>
+      <div class="col-xs-9">
+        <input id="editAppApplicationIdentifier"
+               class="box bd-text-input"
+               type="text"
+               ng-model="application.identifier"
+               required />
+      </div>
+    </div>
+  </div>
+</form>

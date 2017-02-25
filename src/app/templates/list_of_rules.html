@@ -1,0 +1,29 @@
+<ul id="rulesList" class="list-group">
+  <li id="noRules"
+      class="list-group-header bd-center"
+      ng-if="!rules || rules && rules.length === 0">
+    There are no rules configured
+  </li>
+  <li class="list-group-item"
+      ng-repeat="item in rules | filterRules:filterCriteria | orderBy:'-created_on' track by $index"
+      id="{{ 'ruleItem_' + $index }}"
+      ng-class="(storage.data.rule && storage.data.rule._id === item._id) ? 'active' : ''"
+      ng-click="loadRule(item)">
+    <img id="{{ 'ruleItemAppLogo_' + $index }}"
+         width="32" height="32"
+         class="img-circle media-object pull-left"
+         ng-class="item.is_active ? '' : 'inactive'"
+         ng-src="data:image/png;base64,{{icons[item.application._id].small}}"
+         alt="{{item.application.display_name}} logo">
+    <div class="media-body">
+      <strong id="{{ 'ruleItemName_' + $index }}">{{ item.name }}</strong>
+      <p id="{{ 'ruleItemConditions_' + $index }}">
+        <ng-pluralize count="item.conditions.length"
+                      when="{'0': 'There are no conditions',
+                               '1': '1 condition',
+                               'other': '{{item.operator|capitalize}} {} conditions must match'}">
+        </ng-pluralize>
+      </p>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,30 @@
+<form id="editSettings" name="editSettings" ng-controller="SettingsCtrl">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="bd-padded">
+        <span>Default web browser:</span>
+        <select id="editSettingsAppDefault"
+                class="bd-select-input"
+                ng-options="item as item.display_name for item in applications track by item._id"
+                ng-model="settings.default_application">
+        </select>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="editSettingsAppStatus"
+                 type="checkbox"
+                 ng-model="settings.is_app_enabled">
+          Enable BrowserDispatcher
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="editSettingsAppUseDefault"
+                 type="checkbox"
+                 ng-model="settings.use_default">
+          Use default browser (do not show selector)
+        </label>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,24 @@
+{
+  "name": "src",
+  "private": true,
+  "moduleType": [
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-material": "^1.1.1",
+    "angular-sanitize": "^1.6.1",
+    "photon": "^0.1.2-alpha",
+    "flexboxgrid": "^6.3.2"
+  }
+}
