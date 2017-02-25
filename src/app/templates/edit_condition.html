@@ -1,0 +1,53 @@
+<div id="editCondition_{{index}}" >
+  <div class="toolbar-actions bd-toolbar-actions">
+    <div class="row center-xs">
+      <div class="col-xs-2">
+        <select id="editConditionOperand_{{ index }}"
+                class="box"
+                ng-model="condition.operand">
+          <option ng-repeat="operand in operands track by $index"
+                  value="{{operand}}">{{operand|capitalize}}</option>
+        </select>
+      </div>
+      <div class="col-xs-3">
+        <select id="editConditionOperator_{{ index }}"
+                class="box"
+                ng-model="condition.operator">
+          <option ng-repeat="operator in operators track by $index"
+                  value="{{operator}}">{{operator|capitalize}}</option>
+        </select>
+      </div>
+      <div class="col-xs-5">
+        <input id="editConditionText_{{ index }}"
+               class="box bd-text-input"
+               ng-model="condition.text" required />
+      </div>
+      <div class="col-xs-2">
+        <div class="btn-group box bd-button-group bd-center-end">
+          <button id="editConditionActionToggle_{{index}}"
+                  toggle-condition
+                  index="index"
+                  class="btn btn-mini bd-button-mini"
+                  ng-class="condition.is_active ? 'btn-default' : ''"
+                  type="button">
+            <span class="icon" ng-class="condition.is_active ? 'icon-check' : 'icon-attention'"></span>
+          </button>
+          <button id="editConditionActionDelete_{{index}}"
+                  remove-condition
+                  index="index"
+                  class="btn btn-mini btn-default bd-button-mini"
+                  type="button">
+            <span class="icon icon-minus"></span>
+          </button>
+          <button id="editConditionActionAdd_{{index}}"
+                  add-condition
+                  index="index"
+                  class="btn btn-mini btn-default bd-button-mini "
+                  type="button">
+            <span class="icon icon-plus"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<ul id="appsList" class="list-group">
+  <li id="noApps"
+      ng-if="!applications || applications && applications.length === 0"
+      class="list-group-header bd-center">
+    There are no applications configured
+  </li>
+  <li class="list-group-item"
+      ng-repeat="item in applications | filterApps:filterCriteria | orderBy:'-created_on' track by $index"
+      ng-class="(storage.data.application && storage.data.application._id === item._id) ? 'active' : ''"
+      ng-click="loadApplication(item)">
+    <img id="{{ 'appItemLogo_' + $index }}"
+         width="32" height="32"
+         class="img-circle media-object pull-left"
+         ng-class="item.is_active ? '' : 'inactive'"
+         ng-src="data:image/png;base64,{{icons[item._id].small}}"
+         alt="{{item.display_name}} logo">
+    <div class="media-body">
+      <strong id="{{ 'appItemDisplayName_' + $index }}">{{ item.display_name }}</strong>
+      <p id="{{ 'appItemIdentifier_' + $index }}">
+        {{ item.identifier }}
+      </p>
+    </div>
+  </li>
+</ul>
+
