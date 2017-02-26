@@ -16,6 +16,9 @@ addons:
 before_install:
 - export DISPLAY=:99.0
 - Xvfb :99 -screen 0 1440x900x24 > /dev/null 2>&1 &
+cache:
+  directories:
+    - node_modules
 install:
 - nvm install 6
 - npm install
@@ -25,6 +28,7 @@ install:
 - bower prune
 script:
 - npm test
+- npm run build-unsigned
 branches:
   only:
   - master

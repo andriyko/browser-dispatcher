@@ -1,7 +1,7 @@
 {
   "name": "BrowserDispatcher",
   "productName": "BrowserDispatcher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Open every link in the right browser",
   "main": "main.js",
   "author": "Andriy Hrytskiv",
@@ -47,12 +47,18 @@
     "clean": "npm run clean:mac",
     "build:mac-unsigned": "export CSC_IDENTITY_AUTO_DISCOVERY=false && npm run clean:mac && node_modules/.bin/build --mac",
     "build:mac": "npm run clean:mac && node_modules/.bin/build --mac",
-    "build": "npm run test && npm prune && bower prune && npm run build:mac"
+    "build": "npm run test && npm prune && bower prune && npm run build:mac",
+    "build-unsigned": "npm run test && npm prune && bower prune && npm run build:mac-unsigned"
   },
   "build": {
     "appId": "com.electron.browserdispatcher",
     "mac": {
-      "category": "public.app-category.productivity"
+      "category": "public.app-category.productivity",
+      "publish": [
+        {
+          "provider": "github"
+        }
+      ]
     },
     "extend-info": "build_files/Info.plist",
     "files": [
