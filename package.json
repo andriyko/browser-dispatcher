@@ -38,7 +38,7 @@
     "chai-as-promised": "^6.0.0",
     "devtron": "^1.4.0",
     "electron": "^1.4.15",
-    "electron-builder": "^11.2.3",
+    "electron-builder": "^11.7.0",
     "electron-rebuild": "^1.5.6",
     "eslint": "^3.15.0",
     "eslint-config-standard": "^6.2.1",
