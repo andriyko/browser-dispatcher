@@ -11,9 +11,9 @@ const TIMEOUT = process.env.CI ? 30000 : 10000;
 const ACTION_TIMEOUT = 1500;
 const MAIN_JS = path.resolve(path.join(__dirname, '..', '..', 'main.js'));
 let USER_DATA_PATH = path.join(process.env.HOME, 'Library', 'Application Support', 'Electron');
-if (process.env.CI) {
-  USER_DATA_PATH = path.join(process.env.HOME, '.config', 'Electron');
-}
+// if (process.env.CI) {
+//   USER_DATA_PATH = path.join(process.env.HOME, '.config', 'Electron');
+// }
 const USER_DATA_PATH_DB = path.join(USER_DATA_PATH, 'databases');
 const APPS_ROOT_FAKE = path.resolve(path.join(__dirname, '..', 'test_data', 'Applications'));
 
