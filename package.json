@@ -7,6 +7,18 @@
   "author": "Andriy Hrytskiv",
   "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andriyko/browser-dispatcher.git"
+  },
+  "keywords": [
+    "Electron",
+    "Browser"
+  ],
+  "bugs": {
+    "url": "https://github.com/andriyko/browser-dispatcher/issues"
+  },
+  "homepage": "https://github.com/andriyko/browser-dispatcher",
   "dependencies": {
     "bluebird": "^3.4.7",
     "camo": "^0.12.3",
@@ -45,10 +57,10 @@
     "test": "npm run lint && npm run test:unit && npm run test:e2e",
     "clean:mac": "rm -rf ./dist/mac",
     "clean": "npm run clean:mac",
-    "build:mac-unsigned": "export CSC_IDENTITY_AUTO_DISCOVERY=false && npm run clean:mac && node_modules/.bin/build --mac",
-    "build:mac": "npm run clean:mac && node_modules/.bin/build --mac",
-    "build": "npm run test && npm prune && bower prune && npm run build:mac",
-    "build-unsigned": "npm run test && npm prune && bower prune && npm run build:mac-unsigned"
+    "dist:mac-unsigned": "export CSC_IDENTITY_AUTO_DISCOVERY=false && npm run clean:mac && node_modules/.bin/build --mac",
+    "dist-unsigned": "npm prune && bower prune && npm run dist:mac-unsigned",
+    "dist:mac": "npm run clean:mac && node_modules/.bin/build --mac",
+    "dist": "npm prune && bower prune && npm run dist:mac"
   },
   "build": {
     "appId": "com.electron.browserdispatcher",

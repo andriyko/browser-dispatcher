@@ -28,9 +28,14 @@ install:
 - bower prune
 script:
 - npm test
-- npm run build-unsigned
 branches:
   only:
   - master
   - develop
   - release
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: npm run dist
+  on:
+    tags: true
