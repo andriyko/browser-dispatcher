@@ -55,12 +55,9 @@
     "test:unit": "./node_modules/.bin/mocha tests/unit --recursive",
     "test:e2e": "./node_modules/.bin/mocha tests/e2e --recursive",
     "test": "npm run lint && npm run test:unit && npm run test:e2e",
-    "clean:mac": "rm -rf ./dist/mac",
-    "clean": "npm run clean:mac",
-    "dist:mac-unsigned": "export CSC_IDENTITY_AUTO_DISCOVERY=false && npm run clean:mac && node_modules/.bin/build --mac",
-    "dist-unsigned": "npm prune && bower prune && npm run dist:mac-unsigned",
-    "dist:mac": "npm run clean:mac && node_modules/.bin/build --mac",
-    "dist": "npm prune && bower prune && npm run dist:mac"
+    "clean": "rm -rf ./dist",
+    "dist-unsigned": "export CSC_IDENTITY_AUTO_DISCOVERY=false && npm run clean && npm prune && bower prune && node_modules/.bin/build --mac",
+    "dist": "npm run clean && npm prune && bower prune && node_modules/.bin/build --mac"
   },
   "build": {
     "appId": "com.electron.browserdispatcher",

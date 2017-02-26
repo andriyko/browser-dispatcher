@@ -3,25 +3,47 @@
 # Browser Dispatcher
 Open every link in the right browser.
 
-## Getting Started
+## Downloads
+To download the latest release, see [releases page](https://github.com/andriyko/browser-dispatcher/releases).
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+**Note:** the application is not signed by Apple Developer ID.
+By default, Mac OS will not open an app from an unidentified developer.
+
+Please follow one of these simple instructions:
+
+1. [Open an app from an unidentified developer](https://support.apple.com/kb/PH25088?locale=en_US)
+2. [How to open apps from unidentified developers](http://www.imore.com/how-open-apps-unidentified-developers-mac)
+
+## Running from source
+You'll need certain packages installed before you can build and run Browser Dispatcher locally.
 
 ### Prerequisites
+1. `nodejs >= 6.2`
 
-What things you need to install the software and how to install them.
+    Install from your package manager or download from https://nodejs.org
 
-**TODO** Download `BrowserDispatcher-x.y.z.dmg` from releases.
+2. `npm install -g bower`
 
-### Installing
+### Installation
 
-```
-npm install
-bower install
-npm test
-```
+After installing the prerequisites:
 
-To start the application in development mode run `npm run dev` or `electron .`.
+1. Clone the git repository from GitHub:
+    ```
+    git clone git@github.com:brave/browser-laptop.git
+    ```
+
+2. Open the working directory:
+    ```
+    cd browser-dispatcher
+    ```
+3. Install dependencies:
+    ```
+    npm install
+    bower install
+    ```
+
+To start the application in development mode run `npm start` or `electron .`.
 
 ## Running the tests
 
@@ -45,12 +67,12 @@ npm run test:e2e
 
 Build without code-signing:
 ```
-npm run build:mac-unsigned
+npm run dist-unsigned
 ```
 
 Build and code-sign:
 ```
-npm run build
+npm run dist
 ```
 
 ## Built With
