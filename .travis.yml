@@ -28,7 +28,7 @@ install:
 - bower prune
 script:
 - npm test
-- npm run dist
+- npm run dist-unsigned
 branches:
   only:
   - master
