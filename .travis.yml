@@ -6,6 +6,7 @@ os:
 env:
   matrix:
   - TARGET_ARCH=x64
+  - CSC_IDENTITY_AUTO_DISCOVERY=false
   global:
     secure: wZrGZcsfokopd8dianfD0abRySRGY7fSTBjtdv9BgVrt095uEgL0JQ+uKrQbvnMardMOKiLSOU+BYkeBUqD2M8WrmRVAaxrZQ6rqUnP12z0jIYJJR8hq1JMKiQnlM9GLgENT3dimQcvtwZKSJuv1wgbibD1ZoFKDXHSmPoMM4S7AW07FRpyDUsF/y8CY9P9i/i6BYV5RHk/wg8zw/rzA/ZFD0eJeu6kN9ec/T8Y6NCBmlSqOS8ci+G+wdw9V9OwfFasAFVIs0gDlfSShg7ahxfkWB0aZOdTR+S2CIGVzEDQkouOReSOr845pMRwXJfvMtZfvU4iVd3x6ubjQOyMrjxefQWos+XeBDFt8buzA3Z39Oa8tPZGJ4MNyZ6R5Cc0FRa66r8qwDNYRoccFMiyIBwW8HmIr42wnYy75j2Br7gkgWKhRUv9YV6jelT3+pFWYZzbjERuGcnPi+q2XWnpHQ+rQEddved0abjMdBSb7JzZgYHqe436Jsgt52qQPeXMUKZQiyjR/L5T/w6uOZHlw51gDyKsV8dUszBYEOOFtLcD/Bl4MTF43UJ5cuQPh+2VBsSR9GSjLWSMPEvTSzYgVPiG8eRuMuvuOmB3TPGrTEo4Z/C1h0yO2w5xSu/fdhSpVyrfKSQl4c9l5ZAHD6MycdXOjU/N9ilvv3M4oOfY9H78=
 osx_image: xcode7.3
@@ -28,7 +29,7 @@ install:
 - bower prune
 script:
 - npm test
-- npm run dist
+- npm run dist-unsigned
 branches:
   only:
   - master
