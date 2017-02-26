@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/andriyko/browser-dispatcher.svg?token=7FzN116gRxwAvymAQzpt&branch=master)](https://travis-ci.com/andriyko/browser-dispatcher)
+
 # Browser Dispatcher
 Open every link in the right browser.
 
