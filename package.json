@@ -77,6 +77,7 @@
       "!build_app.sh",
       "!package.json",
       "!README.md",
+      "!CONTRIBUTORS",
       "!src/bower.json",
       "!src/bower_components${/*}",
       "!assets${/*}",
@@ -93,7 +94,6 @@
       "!**/._*",
       "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,__pycache__,thumbs.db,.gitignore,.gitattributes,.editorconfig,.flowconfig,.yarn-metadata.json,.idea,appveyor.yml,.travis.yml,circle.yml,npm-debug.log,.nyc_output,yarn.lock,.yarn-integrity}",
 
-      "src/bower_components/angular/angular.min.js",
       "src/bower_components/angular/angular.min.js",
       "src/bower_components/angular-sanitize/angular-sanitize.min.js",
       "src/bower_components/angular-animate/angular-animate.min.js",
