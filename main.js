@@ -428,6 +428,11 @@ app.on('open-url', (event, url) => {
       if (appStatus.status) {
         sqlodm.rule.find({is_active: true}, {populate: true}).then(
           rules => {
+            for (let rule of rules) {
+              rule.conditions = rule.conditions.filter((cond) => {
+                return cond.is_active;
+              })
+            }
             let rule = evaluators.evaluateRules(rules, url, event);
             if (rule) {
               openUrl(rule, url);

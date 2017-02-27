@@ -828,6 +828,7 @@ myApp.controller('RuleCtrl', function ($scope, DEFAULT_CONDITION, storage, actio
     $scope.rule.open_not_foreground;
 
   $scope.toggleActive = function () {
+    $scope.editRule.$dirty = true;
     $scope.rule.is_active = !$scope.rule.is_active;
   };
 
@@ -840,12 +841,14 @@ myApp.controller('RuleCtrl', function ($scope, DEFAULT_CONDITION, storage, actio
   };
 
   $scope.$on('condition-add', function (e, index) {
+    $scope.editRule.$dirty = true;
     $scope.rule.conditions.splice(Number.parseInt(index) + 1, 0, angular.copy(DEFAULT_CONDITION));
     $scope.$apply();
   });
 
   $scope.$on('condition-remove', function (e, index) {
     if ($scope.rule.conditions.length > 1) {
+      $scope.editRule.$dirty = true;
       $scope.rule.conditions.splice(Number.parseInt(index), 1);
       $scope.$apply();
     }
@@ -853,15 +856,18 @@ myApp.controller('RuleCtrl', function ($scope, DEFAULT_CONDITION, storage, actio
 
   $scope.$on('condition-toggle', function (e, index) {
     if ($scope.rule.conditions.length > 1) {
+      $scope.editRule.$dirty = true;
       $scope.rule.conditions[index].is_active = !$scope.rule.conditions[index].is_active;
       $scope.$apply();
     }
   });
 
   $scope.$watch('rule', (newValue, oldValue) => {
-    if (newValue !== oldValue) {
+    if (newValue._id !== oldValue._id) {
+      $scope.editRule.$dirty = false;
+    }
+    if (newValue !== oldValue && $scope.editRule.$dirty) {
       $scope.actions.setCanSave([
-        $scope.editRule.$dirty,
         $scope.rule.name,
         $scope.rule.conditions && $scope.rule.conditions.every(function (c) { return c.text; })
       ].every(function (attr) { return attr; }));
@@ -877,6 +883,7 @@ myApp.controller('ApplicationCtrl', function ($scope, $timeout, storage, actions
   $scope.actions.setCanDelete(false);
 
   $scope.toggleActive = function () {
+    $scope.editApp.$dirty = true;
     $scope.application.is_active = !$scope.application.is_active;
   };
 
@@ -885,13 +892,17 @@ myApp.controller('ApplicationCtrl', function ($scope, $timeout, storage, actions
   };
 
   $scope.$watch('application', (newValue, oldValue) => {
-    $scope.actions.setCanDelete(angular.isDefined($scope.application._id));
-    $scope.actions.setCanSave([
-      // $scope.editApp.$dirty,
-      $scope.application.name,
-      $scope.application.executable,
-      $scope.application.identifier,
-      $scope.application.display_name
-    ].every(function (attr) { return attr; }));
+    if (newValue._id !== oldValue._id) {
+      $scope.editApp.$dirty = false;
+    }
+    if (newValue !== oldValue && $scope.editApp.$dirty) {
+      $scope.actions.setCanDelete(angular.isDefined($scope.application._id));
+      $scope.actions.setCanSave([
+        $scope.application.name,
+        $scope.application.executable,
+        $scope.application.identifier,
+        $scope.application.display_name
+      ].every(function (attr) { return attr; }));
+    }
   }, true)
 });
