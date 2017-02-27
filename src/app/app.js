@@ -666,12 +666,18 @@ myApp.controller('MainCtrl', function ($scope, $rootScope, $q, $timeout, storage
     let _textConfirm = 'Delete';
     let _textTitle = 'Confirm delete';
     let _textDetail = null;
+    let canDelete = true;
     switch (true) {
       case $scope.ctx.isRulesView():
         _textDetail = 'Note: It is possible to deactivate a rule, not delete.';
         break;
       case $scope.ctx.isAppsView():
         _textDetail = 'Note: All the rules that use this application will be deleted.';
+        canDelete = storage.data.settings.default_application._id !== storage.data.application._id;
+        if (!canDelete) {
+          _textDetail = 'Note: You can change favorite browser in "Options" tab.';
+          _textContent = `Cannot delete ${storage.data.application.display_name} as it is used as a favorite browser.`
+        }
         break;
       case $scope.ctx.isSettingsView():
         _textConfirm = 'Reset';
@@ -685,11 +691,11 @@ myApp.controller('MainCtrl', function ($scope, $rootScope, $q, $timeout, storage
       title: _textTitle,
       message: _textContent,
       detail: _textDetail,
-      buttons: [_textConfirm, 'Cancel']
+      buttons: canDelete ? [_textConfirm, 'Cancel'] : ['Cancel']
     };
 
     dialog.showMessageBox(remote.getCurrentWindow(), opts, (idx) => {
-      if (idx === 0) {
+      if (opts.buttons.length === 2 && idx === 0) {
         $scope.delete();
       }
     });
@@ -822,6 +828,7 @@ myApp.controller('RuleCtrl', function ($scope, DEFAULT_CONDITION, storage, actio
     $scope.rule.open_not_foreground;
 
   $scope.toggleActive = function () {
+    $scope.editRule.$dirty = true;
     $scope.rule.is_active = !$scope.rule.is_active;
   };
 
@@ -834,12 +841,14 @@ myApp.controller('RuleCtrl', function ($scope, DEFAULT_CONDITION, storage, actio
   };
 
   $scope.$on('condition-add', function (e, index) {
+    $scope.editRule.$dirty = true;
     $scope.rule.conditions.splice(Number.parseInt(index) + 1, 0, angular.copy(DEFAULT_CONDITION));
     $scope.$apply();
   });
 
   $scope.$on('condition-remove', function (e, index) {
     if ($scope.rule.conditions.length > 1) {
+      $scope.editRule.$dirty = true;
       $scope.rule.conditions.splice(Number.parseInt(index), 1);
       $scope.$apply();
     }
@@ -847,15 +856,18 @@ myApp.controller('RuleCtrl', function ($scope, DEFAULT_CONDITION, storage, actio
 
   $scope.$on('condition-toggle', function (e, index) {
     if ($scope.rule.conditions.length > 1) {
+      $scope.editRule.$dirty = true;
       $scope.rule.conditions[index].is_active = !$scope.rule.conditions[index].is_active;
       $scope.$apply();
     }
   });
 
   $scope.$watch('rule', (newValue, oldValue) => {
-    if (newValue !== oldValue) {
+    if (newValue._id !== oldValue._id) {
+      $scope.editRule.$dirty = false;
+    }
+    if (newValue !== oldValue && $scope.editRule.$dirty) {
       $scope.actions.setCanSave([
-        $scope.editRule.$dirty,
         $scope.rule.name,
         $scope.rule.conditions && $scope.rule.conditions.every(function (c) { return c.text; })
       ].every(function (attr) { return attr; }));
@@ -871,6 +883,7 @@ myApp.controller('ApplicationCtrl', function ($scope, $timeout, storage, actions
   $scope.actions.setCanDelete(false);
 
   $scope.toggleActive = function () {
+    $scope.editApp.$dirty = true;
     $scope.application.is_active = !$scope.application.is_active;
   };
 
@@ -879,13 +892,17 @@ myApp.controller('ApplicationCtrl', function ($scope, $timeout, storage, actions
   };
 
   $scope.$watch('application', (newValue, oldValue) => {
-    $scope.actions.setCanDelete(angular.isDefined($scope.application._id));
-    $scope.actions.setCanSave([
-      // $scope.editApp.$dirty,
-      $scope.application.name,
-      $scope.application.executable,
-      $scope.application.identifier,
-      $scope.application.display_name
-    ].every(function (attr) { return attr; }));
+    if (newValue._id !== oldValue._id) {
+      $scope.editApp.$dirty = false;
+    }
+    if (newValue !== oldValue && $scope.editApp.$dirty) {
+      $scope.actions.setCanDelete(angular.isDefined($scope.application._id));
+      $scope.actions.setCanSave([
+        $scope.application.name,
+        $scope.application.executable,
+        $scope.application.identifier,
+        $scope.application.display_name
+      ].every(function (attr) { return attr; }));
+    }
   }, true)
 });

@@ -27,8 +27,7 @@ install:
 - bower install --allow-root
 - bower prune
 script:
-#- npm test
-- npm run test:unit
+- npm test
 #branches:
 #  only:
 #  - master
