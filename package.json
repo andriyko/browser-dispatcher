@@ -1,7 +1,7 @@
 {
   "name": "BrowserDispatcher",
   "productName": "BrowserDispatcher",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Open every link in the right browser",
   "main": "main.js",
   "author": "Andriy Hrytskiv",

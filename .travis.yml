@@ -42,5 +42,7 @@ deploy:
   on:
     tags: true
   all_branches: true
-  file_glob: true
-  file: dist/mac/BrowserDispatcher*
+#  file_glob: true
+  file:
+    - dist/mac/BrowserDispatcher-0.0.6.dmg
+    - dist/mac/BrowserDispatcher-0.0.6-mac.zip

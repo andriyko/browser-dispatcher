@@ -9,10 +9,8 @@ To download the latest release, see [releases page](https://github.com/andriyko/
 **Note:** the application is not signed by Apple Developer ID.
 By default, Mac OS will not open an app from an unidentified developer.
 
-Please follow one of these simple instructions:
+In the Finder, locate `BrowserDispatcher.app` and Control-click the app icon, then choose Open from the shortcut menu.
 
-1. [Open an app from an unidentified developer](https://support.apple.com/kb/PH25088?locale=en_US)
-2. [How to open apps from unidentified developers](http://www.imore.com/how-open-apps-unidentified-developers-mac)
 
 ## Running from source
 You'll need certain packages installed before you can build and run Browser Dispatcher locally.
@@ -30,7 +28,7 @@ After installing the prerequisites:
 
 1. Clone the git repository from GitHub:
     ```
-    git clone git@github.com:brave/browser-laptop.git
+    git clone git@github.com:brave/browser-dispatcher.git
     ```
 
 2. Open the working directory:
@@ -38,6 +36,7 @@ After installing the prerequisites:
     cd browser-dispatcher
     ```
 3. Install dependencies:
+
     ```
     npm install
     bower install
