@@ -45,5 +45,5 @@ deploy:
 #  on:
 #    tags: true
   all_branches: true
-#  file_glob: true
+  file_glob: true
   file: dist/mac/BrowserDispatcher-*
