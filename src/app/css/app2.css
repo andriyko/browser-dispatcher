@@ -5,10 +5,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    /*background-color: transparent !important;*/
-    /*background-color: rgba(0,0,0,0.5);*/
-    background-color: rgba(115,116,117,0.5);
-    cursor: pointer;
+    background-color: rgba(115,116,117,0.8);
 }
 
 md-toolbar {
@@ -30,33 +27,21 @@ md-toolbar {
     padding-right: 0;
     width: 60px;
     border-radius: 50%;
+    cursor: default;
 }
 
 .md-chips {
     font-size: 12px;
     padding-bottom: 0;
+    box-shadow: none !important;
 }
 
 .md-chips md-chip {
     height: 20px;
     line-height: 18px;
-    /*background-color: rgba(0,0,0,0.54);*/
-    background-color: rgba(115,116,117,0.5);
+    background-color: rgba(115,116,117,0.9);
     color: rgb(255,255,255);
-    box-shadow: none;
-}
-
-md-tooltip .md-content {
-    height: 12px;
-    line-height: 12px;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-md-tooltip {
-    top: 50px !important;
-    font-weight: 400;
-    font-size: 10px;
+    box-shadow: none !important;
 }
 
 md-icon {

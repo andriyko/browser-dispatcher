@@ -29,9 +29,6 @@
                aria-label="Open browser"
                ng-click="openApplication(application)">
       <img class="png-icon" ng-src="data:image/png;base64,{{icons[application._id].small}}">
-      <md-tooltip md-visible="false" md-direction="bottom">
-        {{application.display_name}}
-      </md-tooltip>
     </md-button>
   </div>
 </md-toolbar>
