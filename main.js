@@ -426,7 +426,7 @@ app.on('open-url', (event, url) => {
       let appStatus = results.find(item => { return item.name === CONST.STATUS.IS_APP_ENABLED });
       let useDefault = results.find(item => { return item.name === CONST.STATUS.IS_USE_DEFAULT });
       if (appStatus.status) {
-        sqlodm.rule.find({}, {populate: true}).then(
+        sqlodm.rule.find({is_active: true}, {populate: true}).then(
           rules => {
             let rule = evaluators.evaluateRules(rules, url, event);
             if (rule) {

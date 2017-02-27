@@ -666,12 +666,18 @@ myApp.controller('MainCtrl', function ($scope, $rootScope, $q, $timeout, storage
     let _textConfirm = 'Delete';
     let _textTitle = 'Confirm delete';
     let _textDetail = null;
+    let canDelete = true;
     switch (true) {
       case $scope.ctx.isRulesView():
         _textDetail = 'Note: It is possible to deactivate a rule, not delete.';
         break;
       case $scope.ctx.isAppsView():
         _textDetail = 'Note: All the rules that use this application will be deleted.';
+        canDelete = storage.data.settings.default_application._id !== storage.data.application._id;
+        if (!canDelete) {
+          _textDetail = 'Note: You can change favorite browser in "Options" tab.';
+          _textContent = `Cannot delete ${storage.data.application.display_name} as it is used as a favorite browser.`
+        }
         break;
       case $scope.ctx.isSettingsView():
         _textConfirm = 'Reset';
@@ -685,11 +691,11 @@ myApp.controller('MainCtrl', function ($scope, $rootScope, $q, $timeout, storage
       title: _textTitle,
       message: _textContent,
       detail: _textDetail,
-      buttons: [_textConfirm, 'Cancel']
+      buttons: canDelete ? [_textConfirm, 'Cancel'] : ['Cancel']
     };
 
     dialog.showMessageBox(remote.getCurrentWindow(), opts, (idx) => {
-      if (idx === 0) {
+      if (opts.buttons.length ===2 && idx === 0) {
         $scope.delete();
       }
     });
