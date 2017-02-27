@@ -101,6 +101,7 @@
       "src/bower_components/angular-messages/angular-messages.min.js",
       "src/bower_components/angular-material/angular-material.min.js",
 
+      "src/bower_components/angular-material/angular-material.min.css",
       "src/bower_components/flexboxgrid/dist/flexboxgrid.min.css",
       "src/bower_components/photon/dist/css/photon.min.css",
       "src/bower_components/photon/dist/fonts/*"
