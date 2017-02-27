@@ -695,7 +695,7 @@ myApp.controller('MainCtrl', function ($scope, $rootScope, $q, $timeout, storage
     };
 
     dialog.showMessageBox(remote.getCurrentWindow(), opts, (idx) => {
-      if (opts.buttons.length ===2 && idx === 0) {
+      if (opts.buttons.length === 2 && idx === 0) {
         $scope.delete();
       }
     });
