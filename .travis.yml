@@ -42,8 +42,8 @@ deploy:
   overwrite: true
   api-key:
     secure: UCvg/CXMPbtErJF7ev2tolNHLXGE/eIAR9hVBw7TnCufbIJinl0UUgu/oC7CPVgnqHUCC/VElTt849vh4eGsHPq5g5jMBk47bRLJtawVveOIeJs9kqKShvrKEai+valSAt/iHXvutBhIH9K/A1f+VNt+35OCJi3dtxwFE0XzciqIbAMNxcPiDtSsxP7sYCZEFRNBEQBuHL8boVMjDylvNPtIaijOrojBFSU8nDLp7XuaJdXbTGjsdGrtWqJvUfk8yoPzaMeRk17NhRK/bJfQD/Jh0sdWKnOQfQ0R/fRi4cDE7qkbUXE5p9li6CaxXmCa9m1Sb1fssA5DHZA2woEzk953XsVN4SF8b0vAdQft66ipD0cm6UuZ/dVdaZ0S0QC4ltRCswrZhgBrKVHmsWs4uYO7TVp5fa93BUjybrWOGvkJCYW29gtu3R0K/6oNt9zwdCjsgeAcRz7WfVRspdigQghNVXMCVeJukd0lz3n+pAObdDbiLk78TM9hz0D0cWEWIfCeetbXpdRFv2pDmj3YPgs3cbdBmm+F3Yby7Mnl03Ao8xfFqPZpMch2brogUBYQ7+g8dQU7uMqAXikE5bm6qSKzjvTnEu02peYu02dxoAV1rl91502VR/VVizot6TVClDnEZjgEvPltQ87kHVu8Z3T4JSpqOx3cLxPwnFWX//w=
-#  on:
-#    tags: true
+  on:
+    tags: true
   all_branches: true
   file_glob: true
   file: dist/mac/BrowserDispatcher-*
