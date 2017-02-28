@@ -866,12 +866,12 @@ myApp.controller('RuleCtrl', function ($scope, DEFAULT_CONDITION, storage, actio
     if (newValue._id !== oldValue._id) {
       $scope.editRule.$dirty = false;
     }
+    $scope.actions.setCanDelete(angular.isDefined($scope.rule._id));
     if (newValue !== oldValue && $scope.editRule.$dirty) {
       $scope.actions.setCanSave([
         $scope.rule.name,
         $scope.rule.conditions && $scope.rule.conditions.every(function (c) { return c.text; })
       ].every(function (attr) { return attr; }));
-      $scope.actions.setCanDelete(angular.isDefined($scope.rule._id));
     }
   }, true);
 });
@@ -895,8 +895,8 @@ myApp.controller('ApplicationCtrl', function ($scope, $timeout, storage, actions
     if (newValue._id !== oldValue._id) {
       $scope.editApp.$dirty = false;
     }
+    $scope.actions.setCanDelete(angular.isDefined($scope.application._id));
     if (newValue !== oldValue && $scope.editApp.$dirty) {
-      $scope.actions.setCanDelete(angular.isDefined($scope.application._id));
       $scope.actions.setCanSave([
         $scope.application.name,
         $scope.application.executable,
