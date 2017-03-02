@@ -4,6 +4,7 @@ const GENERAL = {
   TEST_URL: 'test-url',
   LOAD_URL: 'load-url',
   OPEN_URL: 'open-url',
+  SHOW_MAN_PAGE: 'show-man-page',
   ERROR: 'general-error'
 };
 

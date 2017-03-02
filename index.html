@@ -88,6 +88,7 @@
         </button>
         <button id="toolbarActionDelete"
                 class="btn btn-mini"
+                ng-disabled="!actions.getCanDelete()"
                 ng-class="actions.getCanDelete() ? 'btn-default': ''"
                 ng-click="showConfirmDelete($event)">
           <span class="icon icon-minus"></span>

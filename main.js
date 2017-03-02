@@ -771,6 +771,11 @@ ipcMain.on(signals.request(signals.GENERAL.TEST_URL), (event, arg) => {
   event.sender.send(signals.response(signals.GENERAL.TEST_URL), result);
 });
 
+ipcMain.on(signals.request(signals.GENERAL.SHOW_MAN_PAGE), (event, arg) => {
+  require('child_process').exec('man -t open | open -f -a Preview');
+  event.sender.send(signals.response(signals.GENERAL.SHOW_MAN_PAGE), {});
+});
+
 // App2 signal handlers
 ipcMain.on(signals.request(signals.GENERAL.OPEN_URL), (event, arg) => {
   open2(arg.url, arg.application.identifier, '-b');

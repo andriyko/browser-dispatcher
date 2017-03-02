@@ -1,7 +1,7 @@
 {
   "name": "BrowserDispatcher",
   "productName": "BrowserDispatcher",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Open every link in the right browser",
   "main": "main.js",
   "author": "Andriy Hrytskiv",
@@ -62,12 +62,7 @@
   "build": {
     "appId": "com.electron.browserdispatcher",
     "mac": {
-      "category": "public.app-category.productivity",
-      "publish": [
-        {
-          "provider": "github"
-        }
-      ]
+      "category": "public.app-category.productivity"
     },
     "extend-info": "build_files/Info.plist",
     "files": [

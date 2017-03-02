@@ -701,6 +701,10 @@ myApp.controller('MainCtrl', function ($scope, $rootScope, $q, $timeout, storage
     });
   };
 
+  $scope.showHelp = function () {
+    ipcRenderer.send(signals.request(signals.GENERAL.SHOW_MAN_PAGE), {})
+  };
+
   $scope.init = function () {
     $q.all([
       $scope.getAppStatus(),
