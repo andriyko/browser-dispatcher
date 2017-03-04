@@ -1,0 +1,115 @@
+{
+  "name": "BrowserDispatcher",
+  "productName": "BrowserDispatcher",
+  "version": "0.1.1",
+  "description": "Open every link in the right browser",
+  "main": "main.js",
+  "author": "Andriy Hrytskiv",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andriyko/browser-dispatcher.git"
+  },
+  "keywords": [
+    "Electron",
+    "Browser"
+  ],
+  "bugs": {
+    "url": "https://github.com/andriyko/browser-dispatcher/issues"
+  },
+  "homepage": "https://github.com/andriyko/browser-dispatcher",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "camo": "^0.12.3",
+    "electron-debug": "^1.1.0",
+    "electron-is-dev": "^0.1.2",
+    "glob": "^7.1.1",
+    "iconutil": "^1.0.1",
+    "nedb": "^1.8.0",
+    "plist": "^2.0.1",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-electron": "^0.37.8",
+    "babel-preset-es2015": "^6.18.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "devtron": "^1.4.0",
+    "electron": "^1.4.15",
+    "electron-builder": "^11.7.0",
+    "electron-rebuild": "^1.5.6",
+    "eslint": "^3.15.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.1",
+    "eslint-plugin-standard": "^2.0.1",
+    "mocha": "^3.2.0",
+    "mock-require": "^2.0.1",
+    "proxyquire": "^1.7.11",
+    "spectron": "^3.6.0"
+  },
+  "scripts": {
+    "start": "electron . --enable-logging",
+    "lint": "./node_modules/.bin/eslint src/app/ && ./node_modules/.bin/eslint tests && ./node_modules/.bin/eslint main.js",
+    "test:unit": "./node_modules/.bin/mocha tests/unit --recursive",
+    "test:e2e": "./node_modules/.bin/mocha tests/e2e --recursive",
+    "test": "npm run lint && npm run test:unit && npm run test:e2e",
+    "clean": "rm -rf ./dist",
+    "dist-unsigned": "export CSC_IDENTITY_AUTO_DISCOVERY=false && npm run clean && npm prune && bower prune && node_modules/.bin/build --mac",
+    "dist": "npm run clean && npm prune && bower prune && node_modules/.bin/build --mac"
+  },
+  "build": {
+    "appId": "com.electron.browserdispatcher",
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "extend-info": "build_files/Info.plist",
+    "files": [
+      "**/*",
+      "!.*",
+      "!build_env.sh",
+      "!build_app.sh",
+      "!package.json",
+      "!README.md",
+      "!CONTRIBUTORS.md",
+      "!src/bower.json",
+      "!src/bower_components${/*}",
+      "!assets${/*}",
+      "!build_files${/*}",
+      "!certificates${/*}",
+      "!dev_files${/*}",
+      "!built${/*}",
+      "!dist{/*}",
+      "!scripts${/*}",
+      "!tests${/*}",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme,test,__tests__,tests,powered-test,example,examples,*.d.ts}",
+      "!**/node_modules/.bin",
+      "!**/*.{o,hprof,orig,pyc,pyo,rbc}",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,__pycache__,thumbs.db,.gitignore,.gitattributes,.editorconfig,.flowconfig,.yarn-metadata.json,.idea,appveyor.yml,.travis.yml,circle.yml,npm-debug.log,.nyc_output,yarn.lock,.yarn-integrity}",
+
+      "src/bower_components/angular/angular.min.js",
+      "src/bower_components/angular-sanitize/angular-sanitize.min.js",
+      "src/bower_components/angular-animate/angular-animate.min.js",
+      "src/bower_components/angular-aria/angular-aria.min.js",
+      "src/bower_components/angular-messages/angular-messages.min.js",
+      "src/bower_components/angular-material/angular-material.min.js",
+
+      "src/bower_components/angular-material/angular-material.min.css",
+      "src/bower_components/flexboxgrid/dist/flexboxgrid.min.css",
+      "src/bower_components/photon/dist/css/photon.min.css",
+      "src/bower_components/photon/dist/fonts/*"
+    ],
+    "protocols": [
+      {
+        "name": "Web site URL",
+        "role": "Viewer",
+        "schemes": [
+          "http",
+          "https"
+        ]
+      }
+    ]
+  }
+}

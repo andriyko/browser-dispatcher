@@ -1,0 +1,22 @@
+{
+  "extends": "standard",
+  "plugins": [
+    "standard",
+    "promise"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true,
+    "amd": true
+  },
+  "globals": {
+    "angular": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "semi": 0
+  }
+
+}

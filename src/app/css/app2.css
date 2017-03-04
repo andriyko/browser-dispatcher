@@ -1,0 +1,51 @@
+html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: rgba(115,116,117,0.8);
+}
+
+md-toolbar {
+    margin-top: 10px;
+    background-color: transparent !important;
+}
+
+.md-toolbar-tools {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.md-button.md-icon-button {
+    margin: 0;
+    height: 60px;
+    min-width: 0;
+    line-height: 24px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 60px;
+    border-radius: 50%;
+    cursor: default;
+}
+
+.md-chips {
+    font-size: 12px;
+    padding-bottom: 0;
+    box-shadow: none !important;
+}
+
+.md-chips md-chip {
+    height: 20px;
+    line-height: 18px;
+    background-color: rgba(115,116,117,0.9);
+    color: rgb(255,255,255);
+    box-shadow: none !important;
+}
+
+md-icon {
+    margin-left: 15px;
+    margin-right: -20px;
+    margin-top: 0;
+}

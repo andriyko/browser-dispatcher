@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Browser Dispatcher</title>
+
+  <link rel="stylesheet" type="text/css" href="src/bower_components/photon/dist/css/photon.min.css">
+  <link rel="stylesheet" type="text/css" href="src/bower_components/flexboxgrid/dist/flexboxgrid.min.css">
+  <link rel="stylesheet" type="text/css" href="src/app/css/app.css">
+
+</head>
+<body ng-app="myApp" ng-controller="MainCtrl as mc">
+<div class="window">
+  <!-- .toolbar-header sits at the top of your app -->
+  <header id="toolbarTop" class="toolbar toolbar-header draggable">
+    <div class="toolbar-actions draggable">
+      <div class="row bd-center">
+        <div class="col-xs-4">
+          <input id="toolbarActionSearch"
+                 class="bd-form-control"
+                 type="text"
+                 ng-show="!ctx.isSettingsView()"
+                 placeholder="Search"
+                 ng-model="filterCriteria.text" />
+        </div>
+        <div class="col-xs-4">
+          <div class="btn-group draggable bd-center box">
+            <button id="toolbarActionReloadRules"
+                    class="btn btn-default"
+                    ng-click="reloadRulesView()"
+                    ng-class="ctx.isRulesView() ? 'btn-primary' : 'btn-default' ">
+              Rules
+            </button>
+            <button id="toolbarActionReloadApps"
+                    class="btn btn-default"
+                    ng-click="reloadAppsView()"
+                    ng-class="ctx.isAppsView() ? 'btn-primary' : 'btn-default' ">
+              Applications
+            </button>
+            <button id="toolbarActionReloadSettings"
+                    class="btn btn-default"
+                    ng-click="reloadSettingsView()"
+                    ng-class="ctx.isSettingsView() ? 'btn-primary' : 'btn-default' ">
+              Options
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-4">
+            <button id="toolbarActionOpenGh"
+                    class="btn btn-default bd-button-icon pull-right">
+              <a href="https://github.com/andriyko"><span class="icon icon-info-circled"></span></a>
+            </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Your app's content goes inside .window-content -->
+  <div class="window-content">
+    <div ng-if="ctx.isSettingsView()" class="pane padded-more">
+      <ng-include src="'./src/app/templates/edit_settings.html'"></ng-include>
+    </div>
+    <div ng-if="!ctx.isSettingsView()" class="pane-group">
+      <div class="pane pane-sm bd-pane-sm sidebar">
+        <nav class="nav-group ">
+          <ng-include ng-if="ctx.isRulesView()"
+                      src="'./src/app/templates/list_of_rules.html'"></ng-include>
+          <ng-include ng-if="ctx.isAppsView()"
+                      src="'./src/app/templates/list_of_applications.html'"></ng-include>
+        </nav>
+      </div>
+
+      <div class="pane">
+        <div class="padded-more">
+          <ng-include ng-if="ctx.isRulesView()"
+                      src="'./src/app/templates/edit_rule.html'"></ng-include>
+          <ng-include ng-if="ctx.isAppsView()"
+                      src="'./src/app/templates/edit_application.html'"></ng-include>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="toolbarBottom" class="toolbar toolbar-footer">
+    <div class="toolbar-actions">
+      <div class="btn-group" ng-if="!ctx.isSettingsView()">
+        <button id="toolbarActionAddNew"
+                class="btn btn-mini btn-default"
+                ng-click="load()">
+          <span class="icon icon-plus"></span>
+        </button>
+        <button id="toolbarActionDelete"
+                class="btn btn-mini"
+                ng-disabled="!actions.getCanDelete()"
+                ng-class="actions.getCanDelete() ? 'btn-default': ''"
+                ng-click="showConfirmDelete($event)">
+          <span class="icon icon-minus"></span>
+        </button>
+        <button id="toolbarActionFilterActive"
+                class="btn btn-mini btn-default"
+                ng-click="toggleFilterCriteria()"
+                ng-class="filterCriteria.filterByStatus ? '' : 'btn-default'">
+          <span class="icon icon-eye"></span>
+        </button>
+      </div>
+      <button id="toolbarActionSave"
+              class="btn btn-mini pull-right"
+              ng-class="actions.getCanSave() ? 'btn-primary' : ''"
+              ng-click="save()"
+              type="button">
+        Save
+      </button>
+      <button id="toolbarActionCancel"
+              class="btn btn-mini btn-default pull-right"
+              ng-click="cancel()">
+        Cancel
+      </button>
+      <button id="toolbarActionResetAll"
+              class="btn btn-mini btn-negative pull-right"
+              ng-if="ctx.isSettingsView()"
+              ng-click="showConfirmDelete($event)">
+        Reset all settings
+      </button>
+    </div>
+  </footer>
+</div>
+</body>
+
+<script src="src/bower_components/angular/angular.min.js"></script>
+<script src="src/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="src/app/app.js"></script>
+
+</html>
