@@ -1,41 +1,43 @@
 language: node_js
 node_js:
-  - '6'
+- '6'
 os:
-  - osx
+- osx
 env:
   matrix:
-    - TARGET_ARCH=x64
+  - TARGET_ARCH=x64
 osx_image: xcode7.3
 addons:
   apt:
     packages:
     - xvfb
 before_install:
-  - export DISPLAY=:99.0
-  - Xvfb :99 -screen 0 1440x900x24 > /dev/null 2>&1 &
+- export DISPLAY=:99.0
+- Xvfb :99 -screen 0 1440x900x24 > /dev/null 2>&1 &
 cache:
   directories:
   - node_modules
 install:
-  - nvm install 6
-  - npm install
-  - npm prune
-  - npm install -g bower
-  - bower install --allow-root
-  - bower prune
+- nvm install 6
+- npm install
+- npm prune
+- npm install -g bower
+- bower install --allow-root
+- bower prune
 script:
-  - npm test
+- npm test
 before_deploy:
-  - npm run dist-unsigned
+- npm run dist-unsigned
 deploy:
   provider: releases
   skip_cleanup: true
-  overwrite: true
-  on:
-    tags: true
   all_branches: true
+  overwrite: true
   file_glob: true
   file: dist/mac/BrowserDispatcher-*
-  api-key:
-    secure: UiqdJtG+XMIIl0SghTk9j3apSlte8QIGikNHhcU7qaQ6cEhB1kfrc+HwY+j0QcbmPYkcYuQgS+t7ZrYuOx1EjqCtdjtHDkXaChz6zewHGpUu1m2EY2xjJVgiQVZLdxpe2VlKpKwoHP0j+sPMO9uuB56xnnFFhZvXUnK1kkCHmGfhOeaFUxMvbm+U6zlUG0OKzSKYMJoiRqnBCg8CmgDKP8eL4oZi90HcvSpJbuvyEqiOuewOlDE9m5nJ0KKJLXDYJIGsmZinRZNN4m+h8+aRdlyC1fEeYtBZOJgzGkRQIocNBzOR73nHGSGKjOl9gVCN705WBk5Fx+BFR50u8lyrWjeLZs1gYDcjQrOBhety1wM5HRcwJxWhSDqy+342FsVfXOQq9AxOBp6lgIw5/mZD8FxH296iyHuq23X53SYiH0QeUYwJ4Sg7uS5Y8e/BTOjCxeYAwUUsQPolxfC3AdlQcEFam6kKKjeNWFOrzdOLUrbZFpSbVoHO7BTAtXwb1Qh7VyYNG88r/gKNJl2wvxbHgpmAR8EP4/TpGf7phtGULHQ1ZlofK7DxNkEk8rnbOKBCdgtYCi60AdSkeUNanGAK2LsUcFr2lmWXGzBjHhuwpu2fGwDx1m4OPhwc6NY7x6QMi/EMsxC0J2gFRUr1IKWzX4fJvltlrrzVXTLPUXb2uCc=
+  on:
+    tags: true
+  api_key:
+    secure: O/9Yk1MV88LjWnZWF2jFjgSTUl0XEbQEpEytoIM0GLyKesAN0cKoLLLVhZv2ugE0k2m4gMmHnTLcZ5LFgE8RJmwwBXPU9IdnwVMm5rbI1Ld/Sdvaqjm0XySt548K4BcM+B0W/dKjt0Gzt+vkjGly8fORulEB0o/b5NIw9OrVyD42bXY6R8OpD6x3TryvoMIKLKWht69PKWIbfHebmlwtMUorcy8HzgVjPdj17b5/7r2FFWC/PnIGoiEB1HZ44ps6nJ1BKOCXaWNn1diH16+8P9fQnGU3Gys5fXnTyLK+mZ0MAErOyM8PzhTOkgf6YDeD/lgOjWFbn8budphRsx9ZzidpQZg4XwSJaA/t1Xo8WDcvzQWcLsiYdfvJeToe1AKFYN4IF4FHxDBPOdrxw1lJMVSFRAs069w31zHsZNIrLHmZNVOSS3G7qNJzpSqIaK7pDWcpx8Q8/URahgoiHGqFGnHfzSDS1gsoEhVOc7s6T++bRVcDfGEOVZ4PAZ8xFMkbYHW4dV1MRSZ2lZ5EvwPULSV9RclLtp5CkG7RswN8uN1Ir42ee9OiabXmeqVYzDsZpmQG8+vhpkKHJ2LgrEkTYaYAzAg1HOdUHwSHTjQsjU376IGip71Rp58Cr6w0fgUGQfqWmZEBA5xDnJIF2lIF+DW3ZZbffP0YlSidbcyMJ4A=
+  on:
+    repo: andriyko/browser-dispatcher
