@@ -2,7 +2,7 @@
   "name": "BrowserDispatcher",
   "productName": "BrowserDispatcher",
   "version": "0.1.4",
-  "description": "Open every link in the right browser",
+  "description": "Sends link to the right browser depending on a set of predefined rules",
   "main": "main.js",
   "author": "Andriy Hrytskiv",
   "license": "MIT",
