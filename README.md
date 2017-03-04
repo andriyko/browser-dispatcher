@@ -3,7 +3,7 @@
 # Browser Dispatcher
 Open every link in the right browser.
 
-BrowserDispatcher.app decides which browser to use when you click on a link outside of your web browser.
+*BrowserDispatcher.app* decides which browser to use when you click on a link outside of your web browser.
 Based on your settings, it will display a prompt allowing you to select from a list of browsers or automatically select a browser to open a link with.
 
 ![BrowserDispatcher.app](http://i.imgur.com/bwjHlb5.png)
@@ -14,8 +14,10 @@ To download the latest release, see [releases page](https://github.com/andriyko/
 **Note:** the application is not signed by Apple Developer ID.
 By default, Mac OS will not open an app from an unidentified developer.
 
-In the Finder, locate `BrowserDispatcher.app` and Control-click the app icon, then choose Open from the shortcut menu.
+In the Finder, locate *BrowserDispatcher.app* and Control-click the app icon, then choose Open from the shortcut menu.
+Make *BrowserDispatcher.app* default web browser. You can use the app menu `Preferences > Make default browser` or go to `System Preferences > General > Default web browser`.
 
+The application is an agent app, that is, menu bar app that does not appear in the Dock or Force Quit window.
 
 ## Running from source
 You'll need certain packages installed before you can build and run Browser Dispatcher locally.
