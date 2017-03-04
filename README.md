@@ -1,8 +1,6 @@
 [![Build Status](https://travis-ci.org/andriyko/browser-dispatcher.svg?branch=master)](https://travis-ci.org/andriyko/browser-dispatcher)
 
 # Browser Dispatcher
-Open every link in the right browser.
-
 *BrowserDispatcher.app* decides which browser to use when you click on a link outside of your web browser.
 Based on your settings, it will display a prompt allowing you to select from a list of browsers or automatically select a browser to open a link with.
 
