@@ -173,7 +173,7 @@ if (shouldQuit) {
 function buildAppMenu () {
   let template = [
     {
-      label: 'Settings',
+      label: `${CONST.COMMON.APP_NAME}`,
       enabled: mainWindow === null || mainWindow === undefined,
       click: () => {
         createMainWindow();
