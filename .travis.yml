@@ -36,8 +36,7 @@ deploy:
   file_glob: true
   file: dist/mac/BrowserDispatcher-*
   on:
+    repo: andriyko/browser-dispatcher
     tags: true
   api_key:
     secure: O/9Yk1MV88LjWnZWF2jFjgSTUl0XEbQEpEytoIM0GLyKesAN0cKoLLLVhZv2ugE0k2m4gMmHnTLcZ5LFgE8RJmwwBXPU9IdnwVMm5rbI1Ld/Sdvaqjm0XySt548K4BcM+B0W/dKjt0Gzt+vkjGly8fORulEB0o/b5NIw9OrVyD42bXY6R8OpD6x3TryvoMIKLKWht69PKWIbfHebmlwtMUorcy8HzgVjPdj17b5/7r2FFWC/PnIGoiEB1HZ44ps6nJ1BKOCXaWNn1diH16+8P9fQnGU3Gys5fXnTyLK+mZ0MAErOyM8PzhTOkgf6YDeD/lgOjWFbn8budphRsx9ZzidpQZg4XwSJaA/t1Xo8WDcvzQWcLsiYdfvJeToe1AKFYN4IF4FHxDBPOdrxw1lJMVSFRAs069w31zHsZNIrLHmZNVOSS3G7qNJzpSqIaK7pDWcpx8Q8/URahgoiHGqFGnHfzSDS1gsoEhVOc7s6T++bRVcDfGEOVZ4PAZ8xFMkbYHW4dV1MRSZ2lZ5EvwPULSV9RclLtp5CkG7RswN8uN1Ir42ee9OiabXmeqVYzDsZpmQG8+vhpkKHJ2LgrEkTYaYAzAg1HOdUHwSHTjQsjU376IGip71Rp58Cr6w0fgUGQfqWmZEBA5xDnJIF2lIF+DW3ZZbffP0YlSidbcyMJ4A=
-  on:
-    repo: andriyko/browser-dispatcher
