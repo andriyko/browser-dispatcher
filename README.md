@@ -7,7 +7,7 @@ Based on your settings, it will display a prompt allowing you to select from a l
 ![BrowserDispatcher.app](http://i.imgur.com/bwjHlb5.png)
 
 ## Downloads
-To download the latest release, see [releases page](https://github.com/andriyko/browser-dispatcher/releases).
+To download the latest release, see [releases page](https://github.com/andriyko/browser-dispatcher/releases) (macOS only).
 
 **Note:** the application is not signed by Apple Developer ID.
 By default, Mac OS will not open an app from an unidentified developer.
@@ -82,6 +82,7 @@ npm run dist
 ## Built With
 
 * [Electron](http://electron.atom.io) - The framework for creating native applications with web technologies like JavaScript, HTML, and CSS.
+* [Photon](http://photonkit.com) - The fastest way to build beautiful Electron apps using simple HTML and CSS.
 
 ## Contributing
 
