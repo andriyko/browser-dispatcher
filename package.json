@@ -1,7 +1,7 @@
 {
   "name": "BrowserDispatcher",
   "productName": "BrowserDispatcher",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Sends link to the right browser depending on a set of predefined rules",
   "main": "main.js",
   "author": "Andriy Hrytskiv",
