@@ -22,7 +22,6 @@ function escape (s) {
  */
 function open2 (target, app, mode, options = null, args = null) {
   app = escape(app);
-  target = encodeURI(target);
 
   let cmd = `open ${mode} "${app}"`;
 

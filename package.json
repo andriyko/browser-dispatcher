@@ -88,14 +88,12 @@
       "!**/*.{o,hprof,orig,pyc,pyo,rbc}",
       "!**/._*",
       "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,__pycache__,thumbs.db,.gitignore,.gitattributes,.editorconfig,.flowconfig,.yarn-metadata.json,.idea,appveyor.yml,.travis.yml,circle.yml,npm-debug.log,.nyc_output,yarn.lock,.yarn-integrity}",
-
       "src/bower_components/angular/angular.min.js",
       "src/bower_components/angular-sanitize/angular-sanitize.min.js",
       "src/bower_components/angular-animate/angular-animate.min.js",
       "src/bower_components/angular-aria/angular-aria.min.js",
       "src/bower_components/angular-messages/angular-messages.min.js",
       "src/bower_components/angular-material/angular-material.min.js",
-
       "src/bower_components/angular-material/angular-material.min.css",
       "src/bower_components/flexboxgrid/dist/flexboxgrid.min.css",
       "src/bower_components/photon/dist/css/photon.min.css",
